@@ -64,7 +64,7 @@ void oled_render_led_state(void) {
     // oled_advance_page(false) instead of oled_write_ln_P to not break OLED_TIMEOUT
     oled_write_P(PSTR("NUM"), host_keyboard_led_state().num_lock);
     oled_advance_page(false);
-    oled_write_P(PSTR("CAP"), host_keyboard_led_state().caps_lock);
+    oled_write_P(PSTR("CAP"), host_keyboard_led_state().caps_lock || caps_word_active);
     oled_advance_page(false);
     oled_write_P(PSTR("SCL"), host_keyboard_led_state().scroll_lock);
     oled_advance_page(false);

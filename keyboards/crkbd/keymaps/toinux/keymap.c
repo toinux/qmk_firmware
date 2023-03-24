@@ -232,6 +232,48 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+        case QF_ACIR:
+        case QF_EACU:
+        case QF_EGRV:
+        case QF_ECIR:
+        case QF_AGRV:
+        case QF_AE:
+        case QF_EDIA:
+        case QF_CCED:
+        case QF_UCIR:
+        case QF_UGRV:
+        case QF_ICIR:
+        case QF_OCIR:
+        case QF_OE:
+        case QF_UDIA:
+        case QF_IDIA:
+        case QF_ODIA:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+        case KC_MINS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+}
+
+bool caps_word_active  = false;
+void caps_word_set_user(bool active) {
+    caps_word_active = active;
+}
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef OLED_ENABLE
