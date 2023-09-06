@@ -226,6 +226,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case CTRLSC:
+        case SFTENT:
+        case TABLGUI:
             return true;
         default:
             return false;
