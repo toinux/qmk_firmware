@@ -16,6 +16,8 @@
 
 #pragma once
 
+#include <stdbool.h>
+
 enum crkbd_layers {
   _BASE,
   _GAMING,
