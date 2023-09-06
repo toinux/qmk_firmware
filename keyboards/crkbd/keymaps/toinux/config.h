@@ -122,4 +122,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
